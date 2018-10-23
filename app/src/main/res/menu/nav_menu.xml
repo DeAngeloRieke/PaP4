@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_Main"
+            android:title="News" />
+
+        <item android:id="@+id/nav_Login"
+            android:title="Log In" />
+
+        <item android:id="@+id/nav_NewChar"
+            android:title="New Character" />
+
+        <item android:id="@+id/nav_ExistChar"
+            android:title="Existing Character" />
+
+        <item android:id="@+id/nav_Database"
+            android:title="Database" />
+
+        <item android:id="@+id/nav_Monsters"
+            android:title="Monster Manual" />
+
+        <item android:id="@+id/nav_Races"
+            android:title="Races" />
+
+        <item android:id="@+id/nav_Classes"
+            android:title="Classes" />
+
+        <item android:id="@+id/nav_DMMode"
+            android:title="Dungeon Master" />
+    </group>
+</menu>
