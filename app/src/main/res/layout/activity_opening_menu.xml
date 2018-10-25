@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OpeningMenu"
+    android:background="@color/BG"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true">
 
@@ -12,10 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".OpeningMenu">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
     <ImageView
         android:id="@+id/mainLogoI"

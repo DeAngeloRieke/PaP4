@@ -3,9 +3,15 @@ package com.example.deangelorieke.dnd;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -18,8 +24,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -61,11 +69,71 @@ public class DriveLogin extends AppCompatActivity implements LoaderCallbacks<Cur
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drive_login);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        actionbar.setTitle("Log In");
+
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.Open, R.string.Close);
+
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+
+                        if (menuItem.toString().equals("News"))
+                        {
+                            sendMenu();
+                        }
+                        else if (menuItem.toString().equals("New Character"))
+                        {
+                            sendNewChar();
+                        }
+                        else if (menuItem.toString().equals("Existing Character"))
+                        {
+                            sendExiChar();
+                        }
+                        else if (menuItem.toString().equals("Database"))
+                        {
+                            sendDB();
+                        }
+                        else if (menuItem.toString().equals("Monster Manual"))
+                        {
+                            sendMon();
+                        }
+                        else if (menuItem.toString().equals("Classes"))
+                        {
+                            sendClass();
+                        }
+                        else if (menuItem.toString().equals("Races"))
+                        {
+                            sendRace();
+                        }else if (menuItem.toString().equals("Dungeon Master"))
+                        {
+                            sendDM();
+                        }
+
+
+                        return true;
+                    }
+                    });
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -82,6 +150,7 @@ public class DriveLogin extends AppCompatActivity implements LoaderCallbacks<Cur
             }
         });
 
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -90,8 +159,16 @@ public class DriveLogin extends AppCompatActivity implements LoaderCallbacks<Cur
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void populateAutoComplete() {
@@ -345,6 +422,46 @@ public class DriveLogin extends AppCompatActivity implements LoaderCallbacks<Cur
             mAuthTask = null;
             showProgress(false);
         }
+    }
+    public void sendMenu()
+    {
+        Intent menuIntent = new Intent(this,OpeningMenu.class);
+        startActivity(menuIntent);
+    }
+    public void sendNewChar()
+    {
+        Intent newCharIntent = new Intent(this,NewCharacter.class);
+        startActivity(newCharIntent);
+    }
+    public void sendExiChar()
+    {
+        Intent exiCharIntent = new Intent(this,ExistingCharacters.class);
+        startActivity(exiCharIntent);
+    }
+    public void sendDB()
+    {
+        Intent dbIntent = new Intent(this,InfoDatabase.class);
+        startActivity(dbIntent);
+    }
+    public void sendClass()
+    {
+        Intent classIntent = new Intent(this,InfoClasses.class);
+        startActivity(classIntent);
+    }
+    public void sendMon()
+    {
+        Intent monIntent = new Intent(this,InfoMonsters.class);
+        startActivity(monIntent);
+    }
+    public void sendRace()
+    {
+        Intent raceIntent = new Intent(this,InfoRaces.class);
+        startActivity(raceIntent);
+    }
+    public void sendDM()
+    {
+        Intent dmIntent = new Intent(this,DMMode.class);
+        startActivity(dmIntent);
     }
 }
 
