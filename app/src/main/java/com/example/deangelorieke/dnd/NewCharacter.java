@@ -1,6 +1,7 @@
 package com.example.deangelorieke.dnd;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class NewCharacter extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -18,6 +22,8 @@ public class NewCharacter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_character);
+
+        final Character C = new Character();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -78,7 +84,16 @@ public class NewCharacter extends AppCompatActivity {
                     }
                 }
         );
-
+        Button next = findViewById(R.id.cc1NextButton);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText ET = (EditText) findViewById(R.id.nameInput);
+                C.CName = ET.getText().toString();
+                Intent ccNext = new Intent(NewCharacter.this, statallocation.class);
+                startActivityForResult(ccNext, 1);
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

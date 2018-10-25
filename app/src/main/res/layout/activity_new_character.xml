@@ -25,12 +25,10 @@
             android:id="@+id/nameHelpI5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="68dp"
-            app:layout_constraintStart_toEndOf="@+id/textInputLayout"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_help" />
+            app:srcCompat="@android:drawable/ic_menu_help"
+            tools:layout_editor_absoluteX="349dp" />
 
     <ImageView
         android:id="@+id/aliHelpi"
@@ -181,23 +179,22 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/Name" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="260dp"
-            android:layout_height="41dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="68dp"
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/nameInput"
+            android:layout_width="269dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="456dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nameHelpI5"
             app:layout_constraintStart_toEndOf="@+id/IName"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/nameInput"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </android.support.design.widget.TextInputLayout>
-
-    <Spinner
+        <Spinner
         android:id="@+id/alSpinner"
         android:layout_width="243dp"
         android:layout_height="26dp"
