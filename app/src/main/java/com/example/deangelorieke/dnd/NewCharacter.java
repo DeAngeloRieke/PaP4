@@ -89,7 +89,7 @@ public class NewCharacter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText ET = (EditText) findViewById(R.id.nameInput);
-                C.CName = ET.getText().toString();
+                C.setCName(ET.getText().toString());
                 Intent ccNext = new Intent(NewCharacter.this, statallocation.class);
                 startActivityForResult(ccNext, 1);
             }

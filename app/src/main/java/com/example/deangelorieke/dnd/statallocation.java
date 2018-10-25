@@ -17,7 +17,7 @@ public class statallocation extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ccBack = new Intent(statallocation.this, CharacterCreation.class);
+                Intent ccBack = new Intent(statallocation.this, NewCharacter.class);
                 startActivityForResult(ccBack, 1);
             }
         });
