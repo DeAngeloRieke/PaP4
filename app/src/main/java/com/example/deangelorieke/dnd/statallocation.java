@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,6 +21,12 @@ public class statallocation extends AppCompatActivity {
         Button back = findViewById(R.id.statsBackButton);
         Button rollAll = findViewById(R.id.statsRollAll);
         Button rollSelected = findViewById(R.id.statsRollSel);
+        final CheckBox strC = findViewById(R.id.strCheck);
+        final CheckBox dexC = findViewById(R.id.dexCheck);
+        final CheckBox conC = findViewById(R.id.conCheck);
+        final CheckBox intC = findViewById(R.id.intCheck);
+        final CheckBox wisC = findViewById(R.id.wisCheck);
+        final CheckBox chaC = findViewById(R.id.charCheck);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +61,47 @@ public class statallocation extends AppCompatActivity {
                 editText4.setText(Integer.toString(wis), TextView.BufferType.EDITABLE);
                 EditText editText5 = (EditText)findViewById(R.id.charNum);
                 editText5.setText(Integer.toString(cha), TextView.BufferType.EDITABLE);
+            }
+        });
+        rollSelected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random rand1 = new Random();
+                Random rand2 = new Random();
+                Random rand3 = new Random();
+                Random rand4 = new Random();
+                Random rand5 = new Random();
+                Random rand6 = new Random();
+                int str = rand1.nextInt(20) + 1;
+                int dex = rand2.nextInt(20) + 1;
+                int con = rand3.nextInt(20)+1;
+                int intel = rand4.nextInt(20) + 1;
+                int wis = rand5.nextInt(20) + 1;
+                int cha = rand6.nextInt(20) + 1;
+                if(strC.isChecked()) {
+                    EditText editText = (EditText) findViewById(R.id.strNum);
+                    editText.setText(Integer.toString(str), TextView.BufferType.EDITABLE);
+                }
+                if(dexC.isChecked()) {
+                    EditText editText1 = (EditText) findViewById(R.id.dexNum);
+                    editText1.setText(Integer.toString(dex), TextView.BufferType.EDITABLE);
+                }
+                if(conC.isChecked()) {
+                    EditText editText2 = (EditText) findViewById(R.id.conNum);
+                    editText2.setText(Integer.toString(con), TextView.BufferType.EDITABLE);
+                }
+                if(intC.isChecked()) {
+                    EditText editText3 = (EditText) findViewById(R.id.intNum);
+                    editText3.setText(Integer.toString(intel), TextView.BufferType.EDITABLE);
+                }
+                if(wisC.isChecked()) {
+                    EditText editText4 = (EditText) findViewById(R.id.wisNum);
+                    editText4.setText(Integer.toString(wis), TextView.BufferType.EDITABLE);
+                }
+                if(chaC.isChecked()) {
+                    EditText editText5 = (EditText) findViewById(R.id.charNum);
+                    editText5.setText(Integer.toString(cha), TextView.BufferType.EDITABLE);
+                }
             }
         });
     }
