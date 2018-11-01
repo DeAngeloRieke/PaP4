@@ -2,8 +2,10 @@ package com.example.deangelorieke.dnd;
 
 import java.lang.reflect.Array;
 
-public class Item {
-    int power;
+    class Item {
+    private int power;
+    private String iName;
+    private String Descr;
 
     public String getiName() {
         return iName;
@@ -20,9 +22,6 @@ public class Item {
     public void setDescr(String descr) {
         Descr = descr;
     }
-
-    String iName;
-    String Descr;
 
     public int getPower() {
         return power;

@@ -3,6 +3,7 @@ package com.example.deangelorieke.dnd;
 import java.lang.reflect.Array;
 
 public class Character {
+    private int characterId;
     private String CName;
     private String CRace;
     private String CClass;
