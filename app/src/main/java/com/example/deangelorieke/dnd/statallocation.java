@@ -21,6 +21,7 @@ public class statallocation extends AppCompatActivity {
         Button back = findViewById(R.id.statsBackButton);
         Button rollAll = findViewById(R.id.statsRollAll);
         Button rollSelected = findViewById(R.id.statsRollSel);
+        Button Confirm = findViewById(R.id.statsConfirm);
         final CheckBox strC = findViewById(R.id.strCheck);
         final CheckBox dexC = findViewById(R.id.dexCheck);
         final CheckBox conC = findViewById(R.id.conCheck);
@@ -43,12 +44,12 @@ public class statallocation extends AppCompatActivity {
                 Random rand4 = new Random();
                 Random rand5 = new Random();
                 Random rand6 = new Random();
-                int str = rand1.nextInt(20) + 1;
-                int dex = rand2.nextInt(20) + 1;
-                int con = rand3.nextInt(20)+1;
-                int intel = rand4.nextInt(20) + 1;
-                int wis = rand5.nextInt(20) + 1;
-                int cha = rand6.nextInt(20) + 1;
+                int str = rand1.nextInt(15) + 5;
+                int dex = rand2.nextInt(15) + 5;
+                int con = rand3.nextInt(15)+5;
+                int intel = rand4.nextInt(15) + 5;
+                int wis = rand5.nextInt(15) + 5;
+                int cha = rand6.nextInt(15) + 5;
                 EditText editText = (EditText)findViewById(R.id.strNum);
                 editText.setText(Integer.toString(str), TextView.BufferType.EDITABLE);
                 EditText editText1 = (EditText)findViewById(R.id.dexNum);
@@ -72,12 +73,12 @@ public class statallocation extends AppCompatActivity {
                 Random rand4 = new Random();
                 Random rand5 = new Random();
                 Random rand6 = new Random();
-                int str = rand1.nextInt(20) + 1;
-                int dex = rand2.nextInt(20) + 1;
-                int con = rand3.nextInt(20)+1;
-                int intel = rand4.nextInt(20) + 1;
-                int wis = rand5.nextInt(20) + 1;
-                int cha = rand6.nextInt(20) + 1;
+                int str = rand1.nextInt(15) + 5;
+                int dex = rand2.nextInt(15) + 5;
+                int con = rand3.nextInt(15)+5;
+                int intel = rand4.nextInt(15) + 5;
+                int wis = rand5.nextInt(15) + 5;
+                int cha = rand6.nextInt(15) + 5;
                 if(strC.isChecked()) {
                     EditText editText = (EditText) findViewById(R.id.strNum);
                     editText.setText(Integer.toString(str), TextView.BufferType.EDITABLE);
