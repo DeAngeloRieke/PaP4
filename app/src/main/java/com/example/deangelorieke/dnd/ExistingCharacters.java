@@ -1,6 +1,8 @@
 package com.example.deangelorieke.dnd;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,15 +12,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExistingCharacters extends AppCompatActivity {
+    public int count = 0;
+    SharedPreferences prefs;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    public List<String> populateList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_existing_characters);
 
+        prefs = this.getSharedPreferences(
+                "com.example.deangelorieke.dnd", Context.MODE_PRIVATE);
+        count = prefs.getInt("count",0);
+
+        populateChar();
+
+        ListView mainLV = (ListView) findViewById(R.id.eCListView);
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                populateList );
+
+        mainLV.setAdapter(arrayAdapter);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -129,5 +153,17 @@ public class ExistingCharacters extends AppCompatActivity {
     {
         Intent dmIntent = new Intent(this,DMMode.class);
         startActivity(dmIntent);
+    }
+    public void populateChar()
+    {
+        for(int i = 0; i < count; i++)
+        {
+            String name = prefs.getString("name" + i, "");
+            populateList.add(name);
+           // String lvl = prefs.getString("lvl" + i, "");
+           // populateList.add(lvl);
+           // String Class = prefs.getString("class" + i, "");
+           // populateList.add(Class);
+        }
     }
 }

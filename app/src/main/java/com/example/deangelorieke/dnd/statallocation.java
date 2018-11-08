@@ -105,5 +105,16 @@ public class statallocation extends AppCompatActivity {
                 }
             }
         });
+        Confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendExiChar();
+            }
+    });
+    }
+    public void sendExiChar()
+    {
+        Intent exiCharIntent = new Intent(this,ExistingCharacters.class);
+        startActivity(exiCharIntent);
     }
 }
