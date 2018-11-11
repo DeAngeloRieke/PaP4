@@ -68,7 +68,7 @@
                 android:layout_marginRight="152dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
+                android:text="This will load news"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/newsSV"
