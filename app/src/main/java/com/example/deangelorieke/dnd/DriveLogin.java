@@ -50,12 +50,9 @@ import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
-/**
- * A login screen that offers login via email/password.
- */
 public class DriveLogin extends AppCompatActivity {
 
-    // UI references.
+
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
@@ -124,14 +121,13 @@ public class DriveLogin extends AppCompatActivity {
         mProgressView = findViewById(R.id.login_progress);
         signIn();
     }
-    /** Start sign in activity. */
-    private void signIn() {
+        private void signIn() {
         Log.i(TAG, "Start sign in");
         mGoogleSignInClient = buildGoogleSignInClient();
         startActivityForResult(mGoogleSignInClient.getSignInIntent(), REQUEST_CODE_SIGN_IN);
     }
 
-    /** Build a Google SignIn client. */
+
     private GoogleSignInClient buildGoogleSignInClient() {
         GoogleSignInOptions signInOptions =
                 new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -140,7 +136,7 @@ public class DriveLogin extends AppCompatActivity {
         return GoogleSignIn.getClient(this, signInOptions);
     }
 
-    /** Create a new file and save it to Drive. */
+
     private void saveFileToDrive() {
 
     }
