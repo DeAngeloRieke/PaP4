@@ -10,6 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 public class OpeningMenu extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -78,7 +82,13 @@ public class OpeningMenu extends AppCompatActivity {
                     }
                 }
         );
-
+        Button next = findViewById(R.id.loginbut);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendLog();
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -126,7 +136,7 @@ public class OpeningMenu extends AppCompatActivity {
     }
     public void sendDM()
     {
-        Intent dmIntent = new Intent(this,DMMode.class);
+        Intent dmIntent = new Intent(this,CharacterViewer.class);
         startActivity(dmIntent);
     }
 }
