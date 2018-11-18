@@ -120,6 +120,7 @@ public class DriveLogin extends AppCompatActivity {
 
         mProgressView = findViewById(R.id.login_progress);
         signIn();
+
     }
         private void signIn() {
         Log.i(TAG, "Start sign in");
